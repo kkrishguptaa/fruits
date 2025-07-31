@@ -1,0 +1,159 @@
+body {
+  background: #fefcf5;
+
+  font-family: "Montserrat", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  gap: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+section {
+  position: relative;
+  border-radius: 20px;
+  background: var(--bg, linear-gradient(to right, #f08080, #ffa07a));
+  padding: 1rem;
+  color: white;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+  width: 250px;
+}
+
+section img {
+  position: absolute;
+  top: -40px;
+  right: var(--x, -40px);
+  max-width: 400px;
+  max-height: 250px;
+  object-fit: contain;
+  z-index: 5;
+
+  transition: transform 0.3s ease;
+}
+
+section:hover img {
+  transform: scale(1.2);
+}
+
+section h2 {
+  color: var(--color, #000);
+  z-index: 10;
+}
+
+.falling-fruits {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.falling-fruit {
+  max-width: 8vw;
+  max-height: 40px;
+  border-radius: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  animation: fall 30s linear infinite;
+  opacity: 0;
+  animation-delay: calc(var(--delay, 0) * 1s);
+}
+
+.falling-fruit:nth-of-type(1) {
+  --delay: 7;
+}
+.falling-fruit:nth-of-type(2) {
+  --delay: 2;
+}
+.falling-fruit:nth-of-type(3) {
+  --delay: 11;
+}
+.falling-fruit:nth-of-type(4) {
+  --delay: 5;
+}
+.falling-fruit:nth-of-type(5) {
+  --delay: 14;
+}
+.falling-fruit:nth-of-type(6) {
+  --delay: 1;
+}
+.falling-fruit:nth-of-type(7) {
+  --delay: 9;
+}
+.falling-fruit:nth-of-type(8) {
+  --delay: 13;
+}
+.falling-fruit:nth-of-type(9) {
+  --delay: 3;
+}
+.falling-fruit:nth-of-type(10) {
+  --delay: 8;
+}
+.falling-fruit:nth-of-type(11) {
+  --delay: 0;
+}
+.falling-fruit:nth-of-type(12) {
+  --delay: 12;
+}
+.falling-fruit:nth-of-type(13) {
+  --delay: 6;
+}
+.falling-fruit:nth-of-type(14) {
+  --delay: 10;
+}
+.falling-fruit:nth-of-type(15) {
+  --delay: 4;
+}
+.falling-fruit:nth-of-type(16) {
+  --delay: 15;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  98% {
+    opacity: 0.5;
+    transform: translateY(100vh);
+  }
+  99% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
